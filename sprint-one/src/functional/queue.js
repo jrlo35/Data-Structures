@@ -32,12 +32,3 @@ var Queue = function(){
   return someInstance;
 };
 
-// Queue.prototype.dequeue = function() {
-//     var oldestIndex = this._oldestIndex,
-//         deletedData = this._storage[oldestIndex];
- 
-//     delete this._storage[oldestIndex];
-//     this._oldestIndex++;
- 
-//     return deletedData;
-// };
