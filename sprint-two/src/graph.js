@@ -4,21 +4,37 @@
 
 // Instantiate a new graph
 var Graph = function(){
+  this.obj = {};
+  this.storage = [];
 };
 
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node){
+	this.storage.push(node);
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node){
+  var bool = false;
+  for(var i = 0; i < this.storage.length; i++){
+  	if(this.storage[i] === node){
+  		bool = true;
+  	}
+
+  }
+  return bool;
 };
 
 // ------------------------
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node){
+	  for(var i = 0; i < this.storage.length; i++){
+  	if(this.storage[i] === node){
+  		delete this.storage[i];
+  	}
+  }
 };
 
 // ------------------------
