@@ -72,13 +72,6 @@ BinarySearchTree.prototype.depthFirstLog = function(func){
 	    recurse(node.right);
 	    
 	};
-	
-	
-	////////////////////////////////////
-	//////func(currentNode.value);//////
-	////////////////////////////////////
-	
-
 };
 
 /*
