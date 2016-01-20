@@ -11,51 +11,49 @@ var BinarySearchTree = function(value){
 BinarySearchTree.prototype.insert = function(value){
 	var currentNode = this;
 	var newNode = BinarySearchTree(value);
-
-	while(currentNode){
-		if(value < currentNode.value){
-			if(!currentNode.left){
-				currentNode.left = newNode;
-				break;
+    recurse(currentNode);
+	function recurse(node){
+		if(value < node.value){
+			if(!node.left){
+				node.left = newNode;
+				return;
 			}
 			else{
-				currentNode = currentNode.left;
+				recurse(node.left);
 			}
 		}
 		else{
-			if(!currentNode.right){
-				currentNode.right = newNode;
-				break;
+			if(!node.right){
+				node.right = newNode;
+				return;
+				
 			}
 			else{
-				currentNode = currentNode.right;
+				recurse(node.right);
 			}
 		}
 	}
+
 };
 
 BinarySearchTree.prototype.contains = function(value){
   var bool=false;
   var currentNode = this;
-
-  while(currentNode){
-    if(value < currentNode.value){
-   			if(!currentNode.left){
-   				return false;
-   			}
-      	currentNode = currentNode.left;
-    }
-    else{
-    	if(!currentNode.right){
-    		return false;
-    	}
-      currentNode=currentNode.right;
-    }
-    if(currentNode.value===value){
+  recurse(currentNode);
+  function recurse(node){
+  
+    if(node.value===value){
       bool=true;
-      break;
-    }
-    
+      return bool;
+   	}
+   	else{
+   		if(node.left){
+   			recurse(node.left)
+   		}
+   		if(node.right){
+   			recurse(node.right)
+   		}
+   	}
   }
   return bool;
 };
